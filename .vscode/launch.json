@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Dev-Estudos/Linguagem-C/pratica01",
-      "program": "d:/Dev-Estudos/Linguagem-C/pratica01/build/Debug/outDebug",
+      "cwd": "d:/Dev-Estudos/Linguagem-C/pratica02",
+      "program": "d:/Dev-Estudos/Linguagem-C/pratica02/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
