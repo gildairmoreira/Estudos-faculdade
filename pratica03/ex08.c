@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//fazer com Do while
+
 int main() {
     int numResidencias = 15;
     float precoKwh;
