@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Dev-Estudos/Linguagem-C/pratica02",
-      "program": "d:/Dev-Estudos/Linguagem-C/pratica02/build/Debug/outDebug",
+      "cwd": "c:/study/Linguagem-C/lista01",
+      "program": "c:/study/Linguagem-C/lista01/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
@@ -19,17 +19,6 @@
           "ignoreFailures": true
         }
       ]
-    },
-    {
-      "name": "(Windows) Iniciar",
-      "type": "cppvsdbg",
-      "request": "launch",
-      "program": "insira o nome do programa, por exemplo ${workspaceFolder}/a.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${fileDirname}",
-      "environment": [],
-      "console": "externalTerminal"
     }
   ]
 }
