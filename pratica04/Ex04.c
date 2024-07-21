@@ -28,6 +28,7 @@ int main() {
     while (str[tamanhoStr] != '\0' && str[tamanhoStr] != '\n') {
         tamanhoStr++;
     }
+
     if (tamanhoStr < 10) {
         printf("String muito curta. Programa finalizado.\n");
         return 1;

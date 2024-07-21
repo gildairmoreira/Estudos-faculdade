@@ -1,0 +1,275 @@
+Nome: gildair moreira da silva / 9405
+
+Aula Prática - Vetor e String
+
+Ex1: 
+
+==============
+
+#include <stdio.h>
+
+int main()
+{
+    int vetor[10];
+    int count2 = 0, count3 = 0, count5 = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        int num;
+        printf("Digite um numero inteiro entre 0 e 9: ");
+        while (scanf("%d", &num) != 1 || num < 0 || num > 9)
+        {
+            printf("Entrada invalida. Digite um numero inteiro entre 0 e 9: ");
+            while (getchar() != '\n');
+        }
+        vetor[i] = num;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (vetor[i] == 2)
+            count2++;
+        if (vetor[i] == 3)
+            count3++;
+        if (vetor[i] == 5)
+            count5++;
+    }
+
+    printf("Quantidade de numeros 2: %d\n", count2);
+    printf("Quantidade de numeros 3: %d\n", count3);
+    printf("Quantidade de numeros 5: %d\n", count5);
+
+    return 0;
+}
+
+=============
+
+Ex02
+
+#include <stdio.h>
+
+int main() {
+    int vetor[10];
+    int count_impar = 0;
+
+    for (int i = 0; i < 10; i++) {
+        printf("Digite um numero inteiro: ");
+        while (scanf("%d", &vetor[i]) != 1) {
+            printf("Entrada invalida. Digite um numero inteiro: ");
+            while (getchar() != '\n'); // Limpar buffer de entrada
+        }
+    }
+
+    // números ímpares
+    printf("Numeros impares no vetor: ");
+    for (int i = 0; i < 10; i++) {
+        if (vetor[i] % 2 != 0) {
+            printf("%d ", vetor[i]);
+            count_impar++;
+        }
+    }
+    printf("\n");
+
+    // quantidade de números ímpares
+    printf("Quantidade de numeros impares: %d\n", count_impar);
+
+    return 0;
+}
+
+=============
+Ex03
+
+#include <stdio.h>
+
+int main()
+{
+    float vetor[15];
+    int codigo;
+
+    for (int i = 0; i < 15; i++)
+    {
+        printf("Digite um numero real: ");
+        while (scanf("%f", &vetor[i]) != 1)
+        {
+            printf("Entrada invalida. Digite um numero real: ");
+            while (getchar() != '\n')
+                ;
+        }
+    }
+
+    printf("Digite o codigo (1 para ordem direta, 2 para ordem inversa): ");
+    while (scanf("%d", &codigo) != 1)
+    {
+        printf("Entrada invalida. Digite um codigo inteiro: ");
+        while (getchar() != '\n')
+            ;
+    }
+
+    if (codigo == 1)
+    {
+        printf("Vetor em ordem direta: ");
+        for (int i = 0; i < 15; i++)
+        {
+            printf("%.2f ", vetor[i]);
+        }
+        printf("\n");
+    }
+    else if (codigo == 2)
+    {
+        printf("Vetor em ordem inversa: ");
+        for (int i = 14; i >= 0; i--)
+        {
+            printf("%.2f ", vetor[i]);
+        }
+        printf("\n");
+    }
+    else
+    {
+        printf("Codigo invalido. Programa finalizado.\n");
+    }
+
+    return 0;
+}
+
+=============
+
+Ex04
+
+#include <stdio.h>
+
+int ehVogal(char c) {
+    char vogais[] = "aeiouAEIOU";
+    for (int i = 0; i < 10; i++) {
+        if (c == vogais[i]) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int ehConsoante(char c) {
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        return !ehVogal(c);
+    }
+    return 0;
+}
+
+int main() {
+    char str[100];
+    int vogais = 0, consoantes = 0;
+
+    printf("Digite uma string de pelo menos 10 caracteres: ");
+    gets(str);
+
+    int tamanhoStr = 0;
+    while (str[tamanhoStr] != '\0' && str[tamanhoStr] != '\n') {
+        tamanhoStr++;
+    }
+
+    if (tamanhoStr < 10) {
+        printf("String muito curta. Programa finalizado.\n");
+        return 1;
+    }
+
+    for (int i = 0; i < tamanhoStr; i++) {
+        if (ehVogal(str[i])) {
+            vogais++;
+        } else if (ehConsoante(str[i])) {
+            consoantes++;
+        }
+    }
+
+    printf("Quantidade de vogais: %d\n", vogais);
+    printf("Quantidade de consoantes: %d\n", consoantes);
+
+    return 0;
+}
+
+
+==============
+Ex05
+
+#include <stdio.h>
+
+int main() {
+    char nomeUser[50];
+    int contLetras;
+
+    printf("Digite o Seu Nome: ");
+    gets(nomeUser);
+
+    for (contLetras = 0; nomeUser[contLetras] != '\0'; contLetras++) {
+        if (nomeUser[contLetras] == '\n') {  
+            nomeUser[contLetras] = '\0';    
+            break;
+        }
+    }
+
+    printf("O tamanho da string e: %d\n", contLetras);
+
+    return 0;
+}
+
+=============
+Ex06
+
+#include <stdio.h>
+
+int ehConsoante(char c) {
+    if (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')) {
+        return 1;
+    }
+    return 0;
+}
+
+int main() {
+    char str[100];
+
+    printf("Digite uma string: ");
+    gets(str);
+
+    printf("Consoantes na string: ");
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (ehConsoante(str[i])) {
+            printf("%c", str[i]);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
+
+==============
+Ex07
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char primeiroNome[50];
+    char ultimoNome[50];
+    char nomeDoMeio[50];
+    char nomeCompleto[150];
+
+    printf("Digite seu primeiro nome: ");
+    gets(primeiroNome);
+    primeiroNome[strcspn(primeiroNome, "\n")] = '\0';
+
+    printf("Digite seu nome do meio: ");
+    gets(nomeDoMeio);
+    nomeDoMeio[strcspn(nomeDoMeio, "\n")] = '\0';
+
+    printf("Digite seu último nome: ");
+    gets(ultimoNome);
+    ultimoNome[strcspn(ultimoNome, "\n")] = '\0';
+
+    strcpy(nomeCompleto, primeiroNome);
+    strcat(nomeCompleto, " ");
+    strcat(nomeCompleto, nomeDoMeio);
+    strcat(nomeCompleto, " ");
+    strcat(nomeCompleto, ultimoNome);
+
+    printf("Nome completo: %s\n", nomeCompleto);
+
+    return 0;
+}

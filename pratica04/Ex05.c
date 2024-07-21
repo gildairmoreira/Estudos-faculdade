@@ -1,17 +1,18 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
     char nomeUser[50];
     int contLetras;
 
     printf("Digite o Seu Nome: ");
-    fgets(nomeUser, sizeof(nomeUser), stdin);
+    gets(nomeUser);
 
-    for (contLetras = 0; nomeUser[contLetras] != '\0'; contLetras++)
-    {
+    for (contLetras = 0; nomeUser[contLetras] != '\0'; contLetras++) {
+        if (nomeUser[contLetras] == '\n') {  
+            nomeUser[contLetras] = '\0';    
+            break;
+        }
     }
-
 
     printf("O tamanho da string e: %d\n", contLetras);
 

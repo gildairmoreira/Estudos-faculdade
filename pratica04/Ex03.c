@@ -16,7 +16,6 @@ int main()
         }
     }
 
-    // Leitura do código
     printf("Digite o codigo (1 para ordem direta, 2 para ordem inversa): ");
     while (scanf("%d", &codigo) != 1)
     {
@@ -25,10 +24,8 @@ int main()
             ;
     }
 
-    // Processamento do código
     if (codigo == 1)
     {
-        // Ordem direta
         printf("Vetor em ordem direta: ");
         for (int i = 0; i < 15; i++)
         {
@@ -38,7 +35,6 @@ int main()
     }
     else if (codigo == 2)
     {
-        // Ordem inversa
         printf("Vetor em ordem inversa: ");
         for (int i = 14; i >= 0; i--)
         {
@@ -48,7 +44,6 @@ int main()
     }
     else
     {
-        // Código inválido
         printf("Codigo invalido. Programa finalizado.\n");
     }
 
