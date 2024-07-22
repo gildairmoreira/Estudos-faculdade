@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/study/Linguagem-C/lista01",
-      "program": "c:/study/Linguagem-C/lista01/build/Debug/outDebug",
+      "cwd": "c:/study/Linguagem-C/sala_aula/matrizes",
+      "program": "c:/study/Linguagem-C/sala_aula/matrizes/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

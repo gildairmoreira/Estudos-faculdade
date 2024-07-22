@@ -15,9 +15,15 @@ int main() {
     gets(nomeDoMeio);
     nomeDoMeio[strcspn(nomeDoMeio, "\n")] = '\0';
 
+<<<<<<< Updated upstream
     printf("Digite seu último nome: ");
     gets(ultimoNome);
     ultimoNome[strcspn(ultimoNome, "\n")] = '\0';
+=======
+    printf("Digite seu ultimo nome: ");
+    fgets(ultimoNome, sizeof(ultimoNome), stdin);
+    ultimoNome[strcspn(ultimoNome, "\n")] = '\0'; // Remove a nova linha
+>>>>>>> Stashed changes
 
     strcpy(nomeCompleto, primeiroNome);
     strcat(nomeCompleto, " ");

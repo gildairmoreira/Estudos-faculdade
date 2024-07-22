@@ -2,7 +2,8 @@
 
 int main() {
     char nomeUser[50];
-    int contLetras;
+    int i;
+    int tamanho = 0;
 
     printf("Digite o Seu Nome: ");
     gets(nomeUser);
