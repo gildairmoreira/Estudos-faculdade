@@ -18,7 +18,7 @@ int main() {
         }
         printf("\n");
     }
-
+    
     printf("\nPosicoes dos numeros pares:\n");
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
