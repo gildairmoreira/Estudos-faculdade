@@ -1,42 +1,25 @@
 #include <stdio.h>
-
-// Função para calcular a raiz quadrada usando o método de Newton-Raphson
-double raizQuadrada(double numero) {
-    if (numero < 0) return -1; // Retorna -1 para números negativos
-    double epsilon = 0.00001;  // Precisão desejada
-    double estimativa = numero;
-    while ((estimativa * estimativa - numero) > epsilon || (numero - estimativa * estimativa) > epsilon) {
-        estimativa = (estimativa + (numero / estimativa)) / 2;
-    }
-    return estimativa;
-}
+#include <math.h>
 
 int main() {
-    int vet[10];
-    int n = 10;
-    double soma = 0, media, somaQuadrados = 0, desvioPadrao;
-
-    // Leitura dos elementos do vetor
-    printf("Digite 10 números inteiros:\n");
-    for (int i = 0; i < n; i++) {
-        printf("Elemento %d: ", i + 1);
-        scanf("%d", &vet[i]);
-        soma += vet[i];  // Soma dos elementos para calcular a média
+    int vetor[10];
+    double soma = 0.0, media, soma_diferencas_quadrado = 0.0, desvio_padrao;
+    
+    printf("Entre com os 10 valores do vetor: ");
+    for (int i = 0; i < 10; i++) {
+        scanf("%d", &vetor[i]);
+        soma += vetor[i];
     }
-
-    // Cálculo da média
-    media = soma / n;
-
-    // Cálculo da soma dos quadrados das diferenças em relação à média
-    for (int i = 0; i < n; i++) {
-        somaQuadrados += (vet[i] - media) * (vet[i] - media);
+    
+    media = soma / 10;
+    
+    for (int i = 0; i < 10; i++) {
+        soma_diferencas_quadrado += pow(vetor[i] - media, 2); //(vetor[i] - media) * (vetor[i] - media); //
     }
-
-    // Cálculo do desvio padrão
-    desvioPadrao = raizQuadrada(somaQuadrados / (n - 1));
-
-    // Impressão do desvio padrão
-    printf("\nO desvio padrão dos elementos do vetor é: %.2f\n", desvioPadrao);
-
+    
+    desvio_padrao = sqrt(soma_diferencas_quadrado / 9);
+    
+    printf("Desvio Padrao = %.3f\n", desvio_padrao);
+    
     return 0;
 }

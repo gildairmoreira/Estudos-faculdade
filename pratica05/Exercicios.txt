@@ -1,0 +1,258 @@
+Gildair moreira da silva / 9405
+
+Pratica 05 Matrizes
+
+EX01:
+
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4];
+    
+    printf("Digite os elementos da matriz 4x4:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+    
+    printf("\nMatriz 4x4:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nPosicoes dos numeros pares:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (matriz[i][j] % 2 == 0) {
+                printf("Posicao [%d][%d] com valor %d\n", i, j, matriz[i][j]);
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
+==========================
+
+EX02:
+
+#include <stdio.h>
+
+int main() {
+    int matriz[5][5];
+    
+    printf("Digite os elementos da matriz 5x5:\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+    
+    printf("\nElementos da diagonal principal:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", matriz[i][i]);
+    }
+    printf("\n");
+    
+    return 0;
+}
+
+
+===========================
+
+EX03:
+
+#include <stdio.h>
+
+int main() {
+    int matriz[4][4];
+    
+    printf("Digite os elementos da matriz 4x4:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+    
+    printf("\nMatriz 4x4:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("\nPosicoes dos numeros pares:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (matriz[i][j] % 2 == 0) {
+                printf("Posicao [%d][%d] com valor %d\n", i, j, matriz[i][j]);
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
+=========================================
+
+EX04:
+
+#include <stdio.h>
+
+int main() {
+    float matriz[3][3];
+    float soma = 0;
+    int totalElementos = 3 * 3;
+
+    printf("Digite os elementos da matriz 3x3:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%f", &matriz[i][j]);
+            soma += matriz[i][j];
+        }
+    }
+    
+    float media = soma / totalElementos;
+    
+    printf("\nA media aritmetica dos elementos da matriz e: %.2f\n", media);
+    
+    return 0;
+}
+
+
+==================================
+
+EX05:
+
+#include <stdio.h>
+
+int main() {
+    int matriz[3][3];
+    int maior, menor;
+
+    printf("Digite os elementos da matriz 3x3:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    maior = matriz[0][0];
+    menor = matriz[0][0];
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (matriz[i][j] > maior) {
+                maior = matriz[i][j];
+            }
+            if (matriz[i][j] < menor) {
+                menor = matriz[i][j];
+            }
+        }
+    }
+
+    printf("\nMaior elemento da matriz: %d\n", maior);
+    printf("Menor elemento da matriz: %d\n", menor);
+
+    return 0;
+}
+
+
+=============================
+
+EX06:
+
+#include <stdio.h>
+
+int main() {
+    int matriz[5][2];
+    int count2 = 0, count3 = 0, count5 = 0;
+
+    printf("Digite os elementos da matriz 5x2 (valores de 0 a 9):\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 2; j++) {
+            do {
+                printf("Elemento [%d][%d]: ", i, j);
+                scanf("%d", &matriz[i][j]);
+
+                if (matriz[i][j] < 0 || matriz[i][j] > 9) {
+                    printf("Valor invalido! Digite um valor entre 0 e 9.\n");
+                }
+            } while (matriz[i][j] < 0 || matriz[i][j] > 9);
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 2; j++) {
+            if (matriz[i][j] == 2) {
+                count2++;
+            }
+            if (matriz[i][j] == 3) {
+                count3++;
+            }
+            if (matriz[i][j] == 5) {
+                count5++;
+            }
+        }
+    }
+
+    printf("\nQuantidade de numeros 2 na matriz: %d\n", count2);
+    printf("Quantidade de numeros 3 na matriz: %d\n", count3);
+    printf("Quantidade de numeros 5 na matriz: %d\n", count5);
+
+    return 0;
+}
+
+
+==============================
+
+EX07:
+
+#include <stdio.h>
+
+int main()
+{
+    int matriz[2][5];
+    int contImpares = 0;
+
+ printf("Digite os elementos da matriz 2x5:\n");
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+        
+    }
+
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (matriz[i][j] % 2 != 0)
+            {
+                printf("%d ", matriz[i][j]);
+                contImpares++;
+            }
+            
+        }
+        
+    }
+    printf("\nA quantidade de numeros impares Nesta matriz e: %d", contImpares);
+    
+
+    return 0;
+}

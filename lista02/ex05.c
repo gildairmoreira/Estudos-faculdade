@@ -1,23 +1,19 @@
 #include <stdio.h>
-#include <ctype.h>  // Para a função isalpha
 
 int main() {
-    char nome[100];  // Define um array para armazenar o nome. Ajuste o tamanho se necessário.
-    int i, count = 0;
+    char nome[100];
+    int contador_letras = 0;
 
-    // Leitura do nome completo
     printf("Entre com um nome completo: ");
-    fgets(nome, sizeof(nome), stdin);  // Lê a string incluindo espaços
+    fgets(nome, sizeof(nome), stdin);
 
-    // Contagem das letras, ignorando espaços
-    for (i = 0; nome[i] != '\0'; i++) {
-        if (isalpha(nome[i])) {  // Verifica se o caractere é uma letra
-            count++;
+    for (int i = 0; nome[i] != '\0'; i++) {
+        if (nome[i] != ' ' && nome[i] != '\n') {
+            contador_letras++;
         }
     }
 
-    // Impressão do número total de letras
-    printf("%d letras\n", count);
+    printf("%d letras\n", contador_letras);
 
     return 0;
 }
