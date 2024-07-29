@@ -2,13 +2,12 @@
 
 int main() {
     int matriz[5][4];
-    int i;
     int matriculaMaiorNota;
     double maiorNota = -1;
     double somaNotasFinais = 0;
 
     printf("Digite as informacoes dos alunos (matricula, media_provas, media_trabalhos):\n");
-    for (i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("Aluno %d:\n", i + 1);
         printf("Numero de matricula: ");
         scanf("%d", &matriz[i][0]);
