@@ -6,7 +6,6 @@ typedef struct Sponteiros
     char name[];
 }, ponteiros;
 
-
 int main()
 {
     int a = 5;
@@ -18,8 +17,6 @@ int main()
     ptr = 50;
 
     printf("%d", ptr);
-
-
 
     return 0;
 }
