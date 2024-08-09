@@ -1,0 +1,201 @@
+Gildair Moreira da Silva / 9405
+
+Ex01:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int LancaMoeda() {
+    return rand() % 2;
+}
+
+int main() {
+    int sorteio;
+    int contCara = 0;
+    int contCoroa = 0;
+
+    srand(time(NULL));
+
+    for (int i = 0; i < 100; i++) {
+        sorteio = LancaMoeda();
+        if (sorteio == 0) {
+            printf("Cara\n");
+            contCara++;
+        } else {
+            printf("Coroa\n");
+            contCoroa++;
+        }
+    }
+
+    printf("\nCara: %d, Coroa: %d\n", contCara, contCoroa);
+    return 0;
+}
+
+
+Ex02:
+
+
+#include <stdio.h>
+#include <math.h>
+
+float calcularHipotenusa(float a, float b) {
+    return sqrt(a * a + b * b);
+}
+
+int main() {
+    float a, b;
+
+    printf("Digite o valor do cateto a: ");
+    scanf("%lf", &a);
+
+    printf("Digite o valor do cateto b: ");
+    scanf("%lf", &b);
+
+    float hipotenusa = calcularHipotenusa(a, b);
+    printf("O valor da hipotenusa e: %.2f\n", hipotenusa);
+
+    return 0;
+}
+
+
+Ex03:
+
+#include <stdio.h>
+
+
+void exibirTela() {
+    printf("==================================\n");
+    printf("+Programação (SIN110)+\n");
+    printf("+---------------------------------------------------------+\n");
+    printf("+Universidade Federal de Vicosa+\n");
+    printf("+Campus Rio Paranaiba+\n");
+    printf("==================================\n");
+}
+
+int main() {
+    exibirTela();
+
+    return 0;
+}
+
+
+Ex04:
+
+#include <stdio.h>
+
+void exibirDataPorExtenso(int dia, int mes, int ano)
+{
+    const char *meses[] = {
+        "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+        "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
+
+    printf("%d de %s de %d\n", dia, meses[mes - 1], ano);
+}
+
+int main()
+{
+    int dia, mes, ano;
+
+    printf("Digite o dia: ");
+    scanf("%d", &dia);
+    printf("Digite o mês: ");
+    scanf("%d", &mes);
+    printf("Digite o ano: ");
+    scanf("%d", &ano);
+
+    exibirDataPorExtenso(dia, mes, ano);
+
+    return 0;
+}
+
+
+Ex05
+
+#include <stdio.h>
+
+int maiorNumero(int num1, int num2) {
+    if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
+
+int main() {
+    int num1, num2, maior;
+
+    printf("Digite o primeiro numero: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo numero: ");
+    scanf("%d", &num2);
+
+    maior = maiorNumero(num1, num2);
+
+    printf("O maior numero é: %d\n", maior);
+
+    return 0;
+}
+
+
+Ex06
+
+#include <stdio.h>
+
+void avaliarConsumo(float distancia, float litros) {
+    float consumo = distancia / litros;
+
+    printf("Consumo: %.2f Km/l\n", consumo);
+
+    if (consumo < 8) {
+        printf("Mensagem: Venda o carro!\n");
+    } else if (consumo >= 8 && consumo <= 12) {
+        printf("Mensagem: Economico!\n");
+    } else {
+        printf("Mensagem: Super economico!\n");
+    }
+}
+
+int main() {
+    float distancia, litros;
+
+    printf("Digite a distancia percorrida em Km: ");
+    scanf("%f", &distancia);
+
+    printf("Digite a quantidade de litros de gasolina consumidos: ");
+    scanf("%f", &litros);
+
+    avaliarConsumo(distancia, litros);
+
+    return 0;
+}
+
+
+Ex07
+
+#include <stdio.h>
+
+float calcularSerie(int N) {
+    float S = 0.0;
+
+    for (int i = 1; i <= N; i++) {
+        float numerador = (i * i) + 1;
+        float denominador = i + 3;
+        S += numerador / denominador;
+    }
+
+    return S;
+}
+
+int main() {
+    int N;
+
+    printf("Digite o valor de N: ");
+    scanf("%d", &N);
+
+    float resultado = calcularSerie(N);
+
+    printf("Resultado da serie: %.2f\n", resultado);
+
+    return 0;
+}
