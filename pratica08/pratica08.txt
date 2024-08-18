@@ -1,0 +1,151 @@
+Gildair Moreira da Silva / 9405
+
+Ex01
+
+#include <stdio.h>
+
+int main() {
+    float numeros[10];
+    
+    for (int i = 0; i < 10; i++) {
+        numeros[i] = i * 1.5;
+    }
+
+    for (int i = 0; i < 10; i++) {
+        printf("Valor na posicao %d: %.2f\tEndereco: %p\n", i, numeros[i], &numeros[i]);
+    }
+
+    return 0;
+}
+
+
+Ex02
+
+#include <stdio.h>
+
+int main() {
+    int inteiro = 10;
+    float real = 3.14;
+    char caractere = 'A';
+
+    int *pInteiro;
+    float *pReal;
+    char *pCaractere;
+
+    pInteiro = &inteiro;
+    pReal = &real;
+    pCaractere = &caractere;
+
+    printf("Antes da modificacao:\n");
+    printf("inteiro: %d, real: %.2f, caractere: %c\n", inteiro, real, caractere);
+
+    *pInteiro = 20;
+    *pReal = 6.28;
+    *pCaractere = 'B';
+
+    printf("Apos a modificacao:\n");
+    printf("inteiro: %d, real: %.2f, caractere: %c\n", inteiro, real, caractere);
+
+    return 0;
+}
+
+
+Ex03
+
+#include <stdio.h>
+
+void mostrarIntervalo(int *n) {
+    for(int i = 1; i <= *n; i += 3) {
+        printf("%d ", i);
+    }
+    printf("\n");
+}
+
+int main() {
+    int N;
+
+    printf("Digite um valor inteiro para N: ");
+    scanf("%d", &N);
+
+    mostrarIntervalo(&N);
+
+    return 0;
+}
+
+
+Ex04
+
+#include <stdio.h>
+
+struct Vetor {
+    float x;
+    float y;
+    float z;
+};
+
+void soma(struct Vetor *v1, struct Vetor *v2, struct Vetor *res) {
+    res->x = v1->x + v2->x;
+    res->y = v1->y + v2->y;
+    res->z = v1->z + v2->z;
+}
+
+int main() {
+    struct Vetor v1 = {1.0, 2.0, 3.0};
+    struct Vetor v2 = {4.0, 5.0, 6.0};
+    struct Vetor resultado;
+
+    soma(&v1, &v2, &resultado);
+
+    printf("Resultado da soma dos vetores:\n");
+    printf("x: %.2f, y: %.2f, z: %.2f\n", resultado.x, resultado.y, resultado.z);
+
+    return 0;
+}
+
+
+Ex05
+
+#include <stdio.h>
+
+void preencheVetor(int *vet, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Digite o valor para a posicao %d: ", i);
+        scanf("%d", &vet[i]);
+    }
+}
+
+void imprimeVetor(int *vet, int n) {
+    printf("Valores do vetor:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", vet[i]);
+    }
+    printf("\n");
+}
+
+int retornaMaiorElemento(int *vet, int n) {
+    int maior = vet[0];
+    for (int i = 1; i < n; i++) {
+        if (vet[i] > maior) {
+            maior = vet[i];
+        }
+    }
+    return maior;
+}
+
+int main() {
+    int n;
+
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
+
+    int vetor[n];
+
+    preencheVetor(vetor, n);
+
+    imprimeVetor(vetor, n);
+
+    int maior = retornaMaiorElemento(vetor, n);
+    printf("O maior elemento do vetor e: %d\n", maior);
+
+    return 0;
+}
