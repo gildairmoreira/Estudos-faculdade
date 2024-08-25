@@ -5,23 +5,28 @@ struct Ponto {
     int y;
 };
 
-// Função para verificar se um ponto está dentro de um retângulo
 int dentroRet(struct Ponto *v1, struct Ponto *v2, struct Ponto *p) {
-    // Verifica se o ponto p está dentro dos limites definidos pelos pontos v1 e v2
-    if (p->x >= v1->x && p->x <= v2->x &&
-        p->y >= v1->y && p->y <= v2->y) {
-        return 1;  // Ponto está dentro do retângulo
+    if (p->x >= v1->x && p->x <= v2->x && p->y >= v1->y && p->y <= v2->y) {
+        return 1;
     } else {
-        return -1; // Ponto está fora do retângulo
+        return -1;
     }
 }
 
 int main() {
-    struct Ponto v1 = {0, 0};  // Inferior esquerdo do retângulo
-    struct Ponto v2 = {10, 10}; // Superior direito do retângulo
-    struct Ponto p = {5, 5};    // Ponto a ser testado
+    struct Ponto v1, v2, p;
+
+    printf("Digite as coordenadas do vertice inferior esquerdo (v1): ");
+    scanf("%d %d", &v1.x, &v1.y);
+
+    printf("Digite as coordenadas do vertice superior direito (v2): ");
+    scanf("%d %d", &v2.x, &v2.y);
+
+    printf("Digite as coordenadas do ponto (p): ");
+    scanf("%d %d", &p.x, &p.y);
 
     int resultado = dentroRet(&v1, &v2, &p);
+
     if (resultado == 1) {
         printf("O ponto esta dentro do retangulo.\n");
     } else {
