@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-struct Ponto {
+typedef struct{
     int x;
     int y;
-};
+}Ponto;
 
-int dentroRet(struct Ponto *v1, struct Ponto *v2, struct Ponto *p) {
+int dentroRet(Ponto *v1, Ponto *v2, Ponto *p) {
     if (p->x >= v1->x && p->x <= v2->x && p->y >= v1->y && p->y <= v2->y) {
         return 1;
     } else {
@@ -14,7 +14,7 @@ int dentroRet(struct Ponto *v1, struct Ponto *v2, struct Ponto *p) {
 }
 
 int main() {
-    struct Ponto v1, v2, p;
+    Ponto v1, v2, p;
 
     printf("Digite as coordenadas do vertice inferior esquerdo (v1): ");
     scanf("%d %d", &v1.x, &v1.y);
