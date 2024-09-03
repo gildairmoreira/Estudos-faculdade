@@ -1,14 +1,11 @@
 #include <stdio.h>
 
-// Função recursiva para calcular o número de Catalan
-unsigned long long catalan(int n) {
-    // Caso base: C(0) = 1
+int catalan(int n) {
     if (n == 0) {
         return 1;
     }
     
-    // Caso recursivo: C(n) = (2(2n - 1) / (n + 1)) * C(n - 1)
-    unsigned long long c_n_minus_1 = catalan(n - 1);
+    int c_n_minus_1 = catalan(n - 1);
     return (2 * (2 * n - 1) * c_n_minus_1) / (n + 1);
 }
 
