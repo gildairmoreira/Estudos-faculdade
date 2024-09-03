@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_CONTATOS 100
-#define TAMANHO_MAXIMO 100
-
 typedef struct {
     int dia;
     int mes;
@@ -13,27 +10,27 @@ typedef struct {
 
 typedef struct {
     int ddd;
-    char numero[TAMANHO_MAXIMO];
+    char numero[100];
 } Telefone;
 
 typedef struct {
-    char rua[TAMANHO_MAXIMO];
+    char rua[100];
     int numero;
-    char complemento[TAMANHO_MAXIMO];
-    char bairro[TAMANHO_MAXIMO];
-    char cep[TAMANHO_MAXIMO];
-    char cidade[TAMANHO_MAXIMO];
-    char estado[TAMANHO_MAXIMO];
-    char pais[TAMANHO_MAXIMO];
+    char complemento[100];
+    char bairro[100];
+    char cep[100];
+    char cidade[100];
+    char estado[100];
+    char pais[100];
 } Endereco;
 
 typedef struct {
-    char nome[TAMANHO_MAXIMO];
-    char email[TAMANHO_MAXIMO];
+    char nome[100];
+    char email[100];
     Endereco endereco;
     Telefone telefone;
     DataAniversario aniversario;
-    char observacoes[TAMANHO_MAXIMO];
+    char observacoes[100];
 } Pessoa;
 
 void menu(Pessoa agenda[], int *quantidade) {
@@ -54,9 +51,9 @@ void menu(Pessoa agenda[], int *quantidade) {
                 inserirPessoa(agenda, quantidade);
                 break;
             case 2: {
-                char nome[TAMANHO_MAXIMO];
+                char nome[100];
                 printf("Digite o primeiro nome para buscar: ");
-                fgets(nome, TAMANHO_MAXIMO, stdin);
+                fgets(nome, 100, stdin);
                 nome[strcspn(nome, "\n")] = '\0';  
                 buscarPorNome(agenda, *quantidade, nome);
                 break;
@@ -87,23 +84,23 @@ void menu(Pessoa agenda[], int *quantidade) {
 }
 
 void inserirPessoa(Pessoa agenda[], int *quantidade) {
-    if (*quantidade >= MAX_CONTATOS) {
+    if (*quantidade >= 100) {
         printf("Agenda cheia!\n");
         return;
     }
 
     Pessoa novaPessoa;
     printf("Digite o nome: ");
-    fgets(novaPessoa.nome, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.nome, 100, stdin);
     novaPessoa.nome[strcspn(novaPessoa.nome, "\n")] = '\0';
 
     printf("Digite o email: ");
-    fgets(novaPessoa.email, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.email, 100, stdin);
     novaPessoa.email[strcspn(novaPessoa.email, "\n")] = '\0';
 
     printf("Digite o endereco (rua, numero, complemento, bairro, cep, cidade, estado, pais):\n");
     printf("Rua: ");
-    fgets(novaPessoa.endereco.rua, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.rua, 100, stdin);
     novaPessoa.endereco.rua[strcspn(novaPessoa.endereco.rua, "\n")] = '\0';
 
     printf("Numero: ");
@@ -111,27 +108,27 @@ void inserirPessoa(Pessoa agenda[], int *quantidade) {
     getchar();  
 
     printf("Complemento: ");
-    fgets(novaPessoa.endereco.complemento, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.complemento, 100, stdin);
     novaPessoa.endereco.complemento[strcspn(novaPessoa.endereco.complemento, "\n")] = '\0';
 
     printf("Bairro: ");
-    fgets(novaPessoa.endereco.bairro, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.bairro, 100, stdin);
     novaPessoa.endereco.bairro[strcspn(novaPessoa.endereco.bairro, "\n")] = '\0';
 
     printf("CEP: ");
-    fgets(novaPessoa.endereco.cep, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.cep, 100, stdin);
     novaPessoa.endereco.cep[strcspn(novaPessoa.endereco.cep, "\n")] = '\0';
 
     printf("Cidade: ");
-    fgets(novaPessoa.endereco.cidade, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.cidade, 100, stdin);
     novaPessoa.endereco.cidade[strcspn(novaPessoa.endereco.cidade, "\n")] = '\0';
 
     printf("Estado: ");
-    fgets(novaPessoa.endereco.estado, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.estado, 100, stdin);
     novaPessoa.endereco.estado[strcspn(novaPessoa.endereco.estado, "\n")] = '\0';
 
     printf("Pais: ");
-    fgets(novaPessoa.endereco.pais, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.endereco.pais, 100, stdin);
     novaPessoa.endereco.pais[strcspn(novaPessoa.endereco.pais, "\n")] = '\0';
 
     printf("Digite o telefone (DDD e numero):\n");
@@ -140,7 +137,7 @@ void inserirPessoa(Pessoa agenda[], int *quantidade) {
     getchar();  
 
     printf("Numero: ");
-    fgets(novaPessoa.telefone.numero, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.telefone.numero, 100, stdin);
     novaPessoa.telefone.numero[strcspn(novaPessoa.telefone.numero, "\n")] = '\0';
 
     printf("Digite a data de aniversario (dia mes ano): ");
@@ -148,7 +145,7 @@ void inserirPessoa(Pessoa agenda[], int *quantidade) {
     getchar();  
 
     printf("Digite observacoes: ");
-    fgets(novaPessoa.observacoes, TAMANHO_MAXIMO, stdin);
+    fgets(novaPessoa.observacoes, 100, stdin);
     novaPessoa.observacoes[strcspn(novaPessoa.observacoes, "\n")] = '\0';
 
     
@@ -225,7 +222,7 @@ void imprimirPessoa(const Pessoa *pessoa) {
 }
 
 int main() {
-    Pessoa agenda[MAX_CONTATOS];
+    Pessoa agenda[100];
     int quantidade = 0;
 
     menu(agenda, &quantidade);

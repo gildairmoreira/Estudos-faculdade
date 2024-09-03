@@ -20,7 +20,7 @@ int main() {
             return 1;
         }
         printf("Digite a palavra %d: ", i + 1);
-        scanf("%99s", palavras[i]);
+        scanf("%s", palavras[i]);
     }
 
     printf("\nPalavras digitadas:\n");

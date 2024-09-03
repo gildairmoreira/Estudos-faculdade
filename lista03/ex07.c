@@ -1,33 +1,27 @@
 #include <stdio.h>
 #include <math.h>
 
-// Função recursiva para calcular o fatorial exponencial
-unsigned long long fatorialExponencial(int n) {
-    // Caso base: fatorial exponencial de 1 é 1
-    if (n == 1) {
+float fatorialExponencial(int n) {
+    if (n == 0) {
         return 1;
     }
-
-    // Calcula o fatorial exponencial de n - 1
-    unsigned long long menorFatorial = fatorialExponencial(n - 1);
-
-    // Calcula n elevado à potência do fatorial exponencial de n - 1
-    unsigned long long resultado = pow(n, menorFatorial);
-
-    return resultado;
+    float potenciaSuperior = fatorialExponencial(n - 1);
+    return pow(n, potenciaSuperior);
 }
 
 int main() {
     int n;
-    
-    printf("Digite o valor de N: ");
+
+    printf("Digite um numero inteiro positivo: ");
     scanf("%d", &n);
-    
-    if (n > 0) {
-        printf("O fatorial exponencial de %d e: %llu\n", n, fatorialExponencial(n));
-    } else {
-        printf("O valor de N deve ser um numero inteiro positivo.\n");
+
+    if (n <= 0) {
+        printf("Numero invalido.\n");
+        return 1;
     }
+
+    float resultado = fatorialExponencial(n);
+    printf("O fatorial exponencial de %d e: %e\n", n, resultado);
 
     return 0;
 }

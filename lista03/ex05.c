@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Funcao para alocar uma matriz dinamicamente
 int** alocarMatriz(int linhas, int colunas) {
     int **matriz = (int**)malloc(linhas * sizeof(int*));
     for (int i = 0; i < linhas; i++) {
@@ -10,7 +9,6 @@ int** alocarMatriz(int linhas, int colunas) {
     return matriz;
 }
 
-// Funcao para liberar a memoria alocada para uma matriz
 void liberarMatriz(int **matriz, int linhas) {
     for (int i = 0; i < linhas; i++) {
         free(matriz[i]);
@@ -18,8 +16,7 @@ void liberarMatriz(int **matriz, int linhas) {
     free(matriz);
 }
 
-// Funcao para exibir uma matriz
-void exibirMatriz(int **matriz, int linhas, int colunas) {
+void imprimirMatriz(int **matriz, int linhas, int colunas) {
     for (int i = 0; i < linhas; i++) {
         for (int j = 0; j < colunas; j++) {
             printf("%d ", matriz[i][j]);
@@ -31,14 +28,13 @@ void exibirMatriz(int **matriz, int linhas, int colunas) {
 int main() {
     int N, M;
 
-    printf("Digite o numero de linhas (N): ");
+    printf("Digite o numero de linhas (N) da matriz: ");
     scanf("%d", &N);
-    printf("Digite o numero de colunas (M): ");
+    printf("Digite o numero de colunas (M) da matriz: ");
     scanf("%d", &M);
 
-    // Alocar e preencher a matriz N x M
     int **matriz = alocarMatriz(N, M);
-    printf("Preencha a matriz %d x %d:\n", N, M);
+    printf("Digite os elementos da matriz NxM:\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             printf("Elemento [%d][%d]: ", i, j);
@@ -46,25 +42,19 @@ int main() {
         }
     }
 
-    // Alocar a matriz transposta M x N
     int **matrizTransposta = alocarMatriz(M, N);
-
-    // Construir a matriz transposta
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            matrizTransposta[j][i] = matriz[i][j];
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            matrizTransposta[i][j] = matriz[j][i];
         }
     }
 
-    // Mostrar a matriz original
-    printf("\nMatriz %d x %d:\n", N, M);
-    exibirMatriz(matriz, N, M);
+    printf("\nMatriz NxM:\n");
+    imprimirMatriz(matriz, N, M);
 
-    // Mostrar a matriz transposta
-    printf("\nMatriz transposta %d x %d:\n", M, N);
-    exibirMatriz(matrizTransposta, M, N);
+    printf("\nMatriz transposta MxN:\n");
+    imprimirMatriz(matrizTransposta, M, N);
 
-    // Liberar memoria
     liberarMatriz(matriz, N);
     liberarMatriz(matrizTransposta, M);
 
